@@ -1,15 +1,15 @@
 # Show Your Team API Documentation
 
 1. 회원 User
-    - [[POST] /api/users - 회원 가입](#[post]-/api/users---회원가입)
-    - [[GET] /api/users/login - 로그인](#[get]-/api/users/login---로그인)
-    - [[GET] /api/users/logout - 로그아웃](#[get]-/api/users/logout---로그아웃)
-    - [[GET] /api/users - 내 정보 조회](#[get]-/api/users---내-정보-조회)
-    - [[POST] /api/users/size - 내 사이즈 입력](#[post]-/api/users/size---내-사이즈-입력)
-    - [[GET] /api/users/size - 내 사이즈 조회](#[get]-/api/users/size---내-사이즈-조회)
+    - [[POST] /api/users - 회원 가입](#post-api/users)
+    - [[GET] /api/users/login - 로그인](#get-api/users/login)
+    - [[GET] /api/users/logout - 로그아웃](#get-api/users/logout)
+    - [[GET] /api/users - 내 정보 조회](#get-api/users)
+    - [[POST] /api/users/size - 내 사이즈 입력](#post-api/users/size)
+    - [[GET] /api/users/size - 내 사이즈 조회](#get-api/users/size)
 2. 팀 Team
 
-## [POST] /api/users - 회원가입
+## <a name="post-api/users"></a>[POST] /api/users - 회원가입
 
 ### 헤더 Headers
 
@@ -40,7 +40,7 @@
         "error": "user_name은 필수 입력 항목입니다."
     }
 
-## [GET] /api/users/login - 로그인
+## <a name="get-api/users/login"></a>[GET] /api/users/login - 로그인
 
 ### 헤더 Headers
 
@@ -71,7 +71,7 @@
         "error": "user_id는 필수 입력 항목입니다."
     }
 
-## [GET] /api/users/logout - 로그아웃
+## <a name="get-api/users/logout"></a>[GET] /api/users/logout - 로그아웃
 
 ### 헤더 Headers
 
@@ -97,7 +97,7 @@
         "error": "Not authenticated."
     }
 
-## [GET] /api/users - 내 정보 조회
+## <a name="get-api/users"></a>[GET] /api/users - 내 정보 조회
 
 
 ### 헤더 Headers
@@ -127,7 +127,7 @@
         "error": "Not authenticated."
     }
 
-## [POST] /api/users/size - 내 사이즈 입력
+## <a name="post-api/users/size"></a>[POST] /api/users/size - 내 사이즈 입력
 
 ### 설명 Description
 
@@ -173,7 +173,7 @@
         "error": "Not authenticated."
     }
 
-## [GET] /api/users/size - 내 사이즈 조회
+## <a name="get-api/users/size"></a>[GET] /api/users/size - 내 사이즈 조회
 
 ### 헤더 Headers
 
