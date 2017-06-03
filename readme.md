@@ -243,6 +243,66 @@
 | 헤더명 | 값 | 예시 |
 |-----|-----|-----|
 | Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |
+
+### 요청 Request
+
+{
+  "teamName": "FC Toeo",
+  "teamLogoUrl": "fileserver/folder/path",
+  "memberList": [
+    {
+      "memberName": "teamUser11",
+      "number": 52
+    },
+    {
+      "memberName": "teamUser21",
+      "number": 71
+    }
+  ]
+}
+
+### 응답 Response
+
+`200 조회 성공`
+
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "teamId": 15,
+      "memberList": [
+        {
+          "id": 22,
+          "member_name": "teamUser11",
+          "number": null
+        },
+        {
+          "id": 23,
+          "member_name": "teamUser21",
+          "number": null
+        }
+      ],
+      "waitingMemberList": []
+    }
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`400 잘못된 요청`
+    {
+        "erro": {field-name} 필드는 필수 입력 사항입니다.
+    }
+
+## <a name="get-api/teams"></a> [GET] /api/teams
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |
 
 ### 요청 Request
 
@@ -252,16 +312,29 @@
 
 `200 조회 성공`
 
-    {
-        "shoulder": 0,
-        "chest": 0,
-        "waist": 0,
-        "pelvis": 0,
-        "hip": 0,
-        "thigh": 0,
-        "arm_length": 0,
-        "leg_length": 0
-    }
+[
+  {
+    "team_name": "FC Toeo",
+    "team_logo_url": "fileserver/folder/path",
+    "team_id": 10,
+    "member_list": [
+      {
+        "id": 12,
+        "member_name": "teamUser11",
+        "number": null
+      },
+      {
+        "id": 13,
+        "member_name": "teamUser21",
+        "number": null
+      }
+    ],
+    "waiting_member_list": [],
+    "creation_date": "2017/06/03"
+  },
+
+  ...
+]
 
 `401 인증 필요`
 
@@ -269,7 +342,7 @@
         "error": "Not authenticated."
     }
 
-## <a name="get-api/teams"></a> [GET] /api/teams
+
 ## <a name="get-api/teams/search"></a> [GET] /api/teams/search
 ## <a name="get-api/teams/:id"></a> [GET] /api/teams/:id
 ## <a name="put-api/teams/:id"></a> [PUT] /api/teams/:id
