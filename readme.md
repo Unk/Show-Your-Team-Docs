@@ -274,7 +274,7 @@
 ## <a name="get-api/teams/:id"></a> [GET] /api/teams/:id
 ## <a name="put-api/teams/:id"></a> [PUT] /api/teams/:id
 
-## <a name="get-api/resouce/"></a> [GET] /api/resource - 패턴 목록]
+## <a name="get-api/resource/"></a> [GET] /api/resource - 패턴 목록]
 
 ### 헤더 Headers
 
@@ -298,7 +298,7 @@
       ...
     ]
 
-## <a name="get-api/resouce/all"></a> [GET] /api/resource/all - 리소스가 포함된 패턴 목록]
+## <a name="get-api/resource/all"></a> [GET] /api/resource/all - 리소스가 포함된 패턴 목록]
 
 ### ! 주의 사항
 
@@ -342,7 +342,7 @@
         ...
     ]
 
-## <a name="get-api/resouce/:code"></a> [GET] /api/resource/:code - 패턴 코드로 리소스 정보 조회]
+## <a name="get-api/resource/:code"></a> [GET] /api/resource/:code - 패턴 코드로 리소스 정보 조회]
 
 ### 헤더 Headers
 
