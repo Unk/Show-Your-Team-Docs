@@ -274,7 +274,7 @@
 ## <a name="get-api/teams/:id"></a> [GET] /api/teams/:id
 ## <a name="put-api/teams/:id"></a> [PUT] /api/teams/:id
 
-## <a name="get-api/resource/"></a> [GET] /api/resource - 패턴 목록]
+## <a name="get-api/resource"></a> [GET] /api/resource - 패턴 목록]
 
 ### 헤더 Headers
 
