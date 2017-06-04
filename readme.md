@@ -378,6 +378,68 @@
         "error": "해당 코드의 패턴을 찾을 수 없습니다."
     }
 
+## <a name="get-api/magazine"></a> [GET] /api/magazine - 매거진 목록
+
+### 헤더 Headers
+
+불필요
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    {
+        "total": 1,
+        "per_page": 12,
+        "current_page": 1,
+        "last_page": 1,
+        "next_page_url": null,
+        "prev_page_url": null,
+        "from": 1,
+        "to": 1,
+        "data": [
+            {
+                "id": 2,
+                "headline": "제목",
+                "sub_headline": "부제",
+                "main_image": "http://domain.com/storage/72/8f/3cfe66735370c87414abc88dc35b.jpg",
+                "featured_image": "http://domain.com/storage/81/12/9b57ae6674d4482e054e0a3732fd.jpg",
+                "created_at": "2017-05-23 09:42:31",
+                "updated_at": "2017-06-04 16:20:37"
+            }
+        ]
+    }
+
+## <a name="get-api/magazine/:id"></a> [GET] /api/magazine/:id - 매거진 상세
+
+### 헤더 Headers
+
+불필요
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    {
+        "id": 2,
+        "headline": "제목",
+        "sub_headline": "부제",
+        "main_image": "http://domain.com/storage/72/8f/3cfe66735370c87414abc88dc35b.jpg",
+        "featured_image": "http://domain.com/storage/81/12/9b57ae6674d4482e054e0a3732fd.jpg",
+        "content": "내용\r\n줄바꿈",
+        "view_count": 1,
+        "created_at": "2017-05-23 09:42:31",
+        "updated_at": "2017-06-04 16:20:37"
+    }
+
 ## <a name="post-api/upload"></a> [POST] /api/upload - 파일 업로드
 
 ### 헤더 Headers
