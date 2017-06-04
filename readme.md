@@ -248,15 +248,15 @@
 ### 요청 Request
     
     {
-      "teamName": "FC Toeo",
-      "teamLogoUrl": "fileserver/folder/path",
-      "memberList": [
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "member_list": [
         {
-          "memberName": "teamUser11",
+          "member_name": "teamUser11",
           "number": 52
         },
         {
-          "memberName": "teamUser21",
+          "member_name": "teamUser21",
           "number": 71
         }
       ]
@@ -269,8 +269,8 @@
     {
       "team_name": "FC Toeo",
       "team_logo_url": "fileserver/folder/path",
-      "teamId": 15,
-      "memberList": [
+      "team_id": 15,
+      "member_list": [
         {
           "id": 22,
           "member_name": "teamUser11",
