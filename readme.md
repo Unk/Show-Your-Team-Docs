@@ -14,7 +14,7 @@
     - [[GET] /api/teams/:id](#get-api/teams/:id)
     - [[PUT] /api/teams/:id](#put-api/teams/:id)
     - [[PUT] /api/teams/:id/signup](#put-api/teams/:id/signup)
-    - [[GET] /api/teams/:id/signup](#get-api/teams/:id/signup)
+    - [[GET] /api/teams/:id/leave](#get-api/teams/:id/leave)
     - [[GET] /api/teams/:id/member/accept](#get-api/teams/:id/member/accept)
     - [[DELETE] /api/teams/:id/member/reject](#delete-api/teams/:id/member/reject)
     - [[DELETE] /api/teams/:id/member/remove](#delete-api/teams/:id/member/remove)
@@ -302,7 +302,6 @@
 | 헤더명 | 값 | 예시 |
 |-----|-----|-----|
 | Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
-| Content-Type | application/json |
 
 ### 요청 Request
 
@@ -343,9 +342,440 @@
     }
 
 
-## <a name="get-api/teams/search"></a> [GET] /api/teams/search
+## <a name="get-api/teams/search"></a> [GET] /api/teams/search?keyword=:query
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+[
+  {
+    "team_name": "FC Toeo",
+    "team_logo_url": "fileserver/folder/path",
+    "team_id": 1,
+    "member_list": [],
+    "waiting_member_list": [],
+    "creation_date": "2017/06/03"
+  },
+
+  ...
+]
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`400 잘못된 요청`
+
+    {
+        "error": "keyword 필드는 필수 입력 사항입니다."
+    }
+
+
 ## <a name="get-api/teams/:id"></a> [GET] /api/teams/:id
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "newTeamName",
+  "team_logo_url": "newTeamLogoUrl",
+  "team_id": 1,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03",
+  "members": []
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+        "error": "팀을 찾을 수 없습니다."
+    }
+
+
+
 ## <a name="put-api/teams/:id"></a> [PUT] /api/teams/:id
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |  |
+
+### 요청 Request
+
+{
+  "teamName": "newTeamName",
+  "teamLogoUrl": "newTeamLogoUrl"
+}
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "newTeamName",
+  "team_logo_url": "newTeamLogoUrl",
+  "team_id": 1,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+        "error": "팀을 찾을 수 없습니다."
+    }
+
+## <a name="put-api/teams/:id/signup"></a> [PUT] /api/teams/:id/signup - 팀 가입 요청]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [
+    {
+      "id": 25,
+      "member_name": "유저일이삼사",
+      "number": null,
+      "cloth_size": null,
+      "user_email": null
+    }
+  ],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+        "error": "already requested team"
+    }
+
+    {
+        "error": "unknown team"
+    }
+
+## <a name="get-api/teams/:id/leave"></a> [GET] /api/teams/:id/leave - 팀 탈퇴]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+## <a name="get-api/teams/:id/member/accept"></a> [GET] /api/teams/:id/accept?userId=:userId - 팀 가입 요청 승인]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+      "error": "Unauthorized user"
+    }
+
+    {
+      "error": "unknown member"
+    }
+
+    {
+      "error": "unknown team"
+    }
+
+    {
+      "error": "already be accepted"
+    }
+
+    {
+      "error": "not waiting member"
+    }
+
+
+
+## <a name="delete-api/teams/:id/member/reject"></a> [DELETE] /api/teams/:id/reject?userId=:userId - 팀 가입 거절]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+      "error": "Unauthorized user"
+    }
+
+    {
+      "error": "unknown member"
+    }
+
+    {
+      "error": "unknown team"
+    }
+
+    {
+      "error": "already be accepted"
+    }
+
+    {
+      "error": "not waiting member"
+    }
+
+## <a name="delete-api/teams/:id/member/remove"></a> [DELETE] /api/teams/:id/remove?userId=:userId - 팀 멤버 삭제]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+      "error": "Unauthorized user"
+    }
+
+    {
+      "error": "unknown member"
+    }
+
+## <a name="post-api/teams/:id/member/add"></a> [POST] /api/teams/:id/member/add - 팀 멤버 추가]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |  |
+
+### 요청 Request
+
+{
+  "memberName": "user000",
+  "number": 32,
+  "clothSize": "S"
+}
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "team_name": "FC Toeo",
+  "team_logo_url": "fileserver/folder/path",
+  "team_id": 2,
+  "member_list": [],
+  "waiting_member_list": [],
+  "creation_date": "2017/06/03"
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+      "error": "Unauthorized user"
+    }
+
+    {
+      "error": "unknown team"
+    }
+
+## <a name="put-api/teams/:id/member/update"></a> [PUT] /api/teams/:id/member/update - 팀 멤버 속성 변경]
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |  |
+
+### 요청 Request
+
+{
+  "userId": 196,
+  "memberName": "teamUser1",
+  "number": 32,
+  "clothSize": "S" or "M" or "L" or "XL" ...
+ }
+
+### 응답 Response
+
+`200 조회 성공`
+
+{
+  "id": 1,
+  "member_name": "teamUser1",
+  "number": 32,
+  "cloth_size": "S",
+  "user_email": null
+}
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+`404 잘못된 요청`
+
+    {
+      "error": "Unauthorized user"
+    }
+
+    {
+      "error": "incorrect team or member"
+    }
+
 
 ## <a name="get-api/resource"></a> [GET] /api/resource - 패턴 목록]
 
@@ -449,6 +879,83 @@
 
     {
         "error": "해당 코드의 패턴을 찾을 수 없습니다."
+    }
+
+## <a name="post-api/order"></a> [POST] /api/order - 주문하기
+
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+| Content-Type | application/json |  |
+
+### 요청 Request
+
+{
+  "customItems": [
+    {
+      "productPart": "top, bottom",
+      "productCategory": "uniform, shorts",
+      "productName": "sleeves_round, sleeves_vneck, half_pants",
+      "patternCode": "15030, 15031",
+      "patternColor": 1,
+      "colors": [
+        {
+          "partName": "body_neck",
+          "colorCode": "#FFFFFF"
+        }
+      ],
+      "name": {
+        "font": 1,
+        "colorCode": "#335222",
+        "material": "material1"
+      },
+      "frontNumber": {
+        "font": 1,
+        "colorCode": "#335222",
+        "material": "material1"
+      },
+      "backNumber": {
+        "font": 1,
+        "colorCode": "#335222",
+        "material": "material1"
+      },
+      "frontSmallPatch": 2,
+      "frontLargePatch": 2,
+      "backLargePatch": 2,
+      "armMediumPatch": 2,
+      "fabric": "soft"
+    }
+  ],
+  "members": [
+    {
+      "memberName": "teamUser1",
+      "number": 32,
+      "clothSize": "S, M, L, XL...",
+      "userId": 23,
+      "userEmail": "ewerw@ew.sa"
+    }
+  ],
+  "customSizes": [
+    {
+      "sizeName": "L, XL",
+      "quantity": 3
+    }
+  ],
+  "quantity": 3
+}
+
+`200 조회 성공`
+
+    [
+        "http://show-your-team-api.dev/order/1496509400__order.json"
+    ]
+
+`400 잘못된 요청`
+
+    {
+        "error": "failed save"
     }
 
 ## <a name="post-api/upload"></a> [POST] /api/upload - 파일 업로드
