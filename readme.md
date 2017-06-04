@@ -246,25 +246,25 @@
 | Content-Type | application/json |
 
 ### 요청 Request
-
-{
-  "teamName": "FC Toeo",
-  "teamLogoUrl": "fileserver/folder/path",
-  "memberList": [
+    
     {
-      "memberName": "teamUser11",
-      "number": 52
-    },
-    {
-      "memberName": "teamUser21",
-      "number": 71
+      "teamName": "FC Toeo",
+      "teamLogoUrl": "fileserver/folder/path",
+      "memberList": [
+        {
+          "memberName": "teamUser11",
+          "number": 52
+        },
+        {
+          "memberName": "teamUser21",
+          "number": 71
+        }
+      ]
     }
-  ]
-}
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 생성 성공`
 
     {
       "team_name": "FC Toeo",
@@ -293,7 +293,7 @@
 
 `400 잘못된 요청`
     {
-        "erro": {field-name} 필드는 필수 입력 사항입니다.
+        "error": {field-name} 필드는 필수 입력 사항입니다.
     }
 
 ## <a name="get-api/teams"></a> [GET] /api/teams
@@ -311,29 +311,28 @@
 
 `200 조회 성공`
 
-[
-  {
-    "team_name": "FC Toeo",
-    "team_logo_url": "fileserver/folder/path",
-    "team_id": 10,
-    "member_list": [
+    [
       {
-        "id": 12,
-        "member_name": "teamUser11",
-        "number": null
+        "team_name": "FC Toeo",
+        "team_logo_url": "fileserver/folder/path",
+        "team_id": 10,
+        "member_list": [
+          {
+            "id": 12,
+            "member_name": "teamUser11",
+            "number": null
+          },
+          {
+            "id": 13,
+            "member_name": "teamUser21",
+            "number": null
+          }
+        ],
+        "waiting_member_list": [],
+        "creation_date": "2017/06/03"
       },
-      {
-        "id": 13,
-        "member_name": "teamUser21",
-        "number": null
-      }
-    ],
-    "waiting_member_list": [],
-    "creation_date": "2017/06/03"
-  },
-
-  ...
-]
+      ...
+    ]
 
 `401 인증 필요`
 
@@ -357,18 +356,17 @@
 
 `200 조회 성공`
 
-[
-  {
-    "team_name": "FC Toeo",
-    "team_logo_url": "fileserver/folder/path",
-    "team_id": 1,
-    "member_list": [],
-    "waiting_member_list": [],
-    "creation_date": "2017/06/03"
-  },
-
-  ...
-]
+    [
+      {
+        "team_name": "FC Toeo",
+        "team_logo_url": "fileserver/folder/path",
+        "team_id": 1,
+        "member_list": [],
+        "waiting_member_list": [],
+        "creation_date": "2017/06/03"
+      },
+      ...
+    ]
 
 `401 인증 필요`
 
@@ -398,15 +396,15 @@
 
 `200 조회 성공`
 
-{
-  "team_name": "newTeamName",
-  "team_logo_url": "newTeamLogoUrl",
-  "team_id": 1,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03",
-  "members": []
-}
+    {
+      "team_name": "newTeamName",
+      "team_logo_url": "newTeamLogoUrl",
+      "team_id": 1,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03",
+      "members": []
+    }
 
 `401 인증 필요`
 
@@ -432,23 +430,23 @@
 
 ### 요청 Request
 
-{
-  "teamName": "newTeamName",
-  "teamLogoUrl": "newTeamLogoUrl"
-}
+    {
+      "teamName": "newTeamName",
+      "teamLogoUrl": "newTeamLogoUrl"
+    }
 
 ### 응답 Response
 
-`200 조회 성공`
-
-{
-  "team_name": "newTeamName",
-  "team_logo_url": "newTeamLogoUrl",
-  "team_id": 1,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+`200 갱신 성공`
+    
+     {
+    "team_name": "newTeamName",
+    "team_logo_url": "newTeamLogoUrl",
+    "team_id": 1,
+    "member_list": [],
+    "waiting_member_list": [],
+    "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -475,24 +473,24 @@
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 가입 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [
     {
-      "id": 25,
-      "member_name": "유저일이삼사",
-      "number": null,
-      "cloth_size": null,
-      "user_email": null
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [
+        {
+          "id": 25,
+          "member_name": "유저일이삼사",
+          "number": null,
+          "cloth_size": null,
+          "user_email": null
+        }
+      ],
+      "creation_date": "2017/06/03"
     }
-  ],
-  "creation_date": "2017/06/03"
-}
 
 `401 인증 필요`
 
@@ -523,16 +521,16 @@
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 탈퇴 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -553,16 +551,16 @@
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 승인 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -607,16 +605,16 @@
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 거절 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -659,16 +657,16 @@
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 삭제 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -696,24 +694,24 @@
 
 ### 요청 Request
 
-{
-  "memberName": "user000",
-  "number": 32,
-  "clothSize": "S"
-}
+    {
+      "memberName": "user000",
+      "number": 32,
+      "clothSize": "S"
+    }
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 추가 성공`
 
-{
-  "team_name": "FC Toeo",
-  "team_logo_url": "fileserver/folder/path",
-  "team_id": 2,
-  "member_list": [],
-  "waiting_member_list": [],
-  "creation_date": "2017/06/03"
-}
+    {
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "team_id": 2,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
+    }
 
 `401 인증 필요`
 
@@ -741,24 +739,24 @@
 
 ### 요청 Request
 
-{
-  "userId": 196,
-  "memberName": "teamUser1",
-  "number": 32,
-  "clothSize": "S" or "M" or "L" or "XL" ...
- }
+    {
+      "userId": 196,
+      "memberName": "teamUser1",
+      "number": 32,
+      "clothSize": "S" or "M" or "L" or "XL" ...
+     }
 
 ### 응답 Response
 
-`200 조회 성공`
+`200 갱신 성공`
 
-{
-  "id": 1,
-  "member_name": "teamUser1",
-  "number": 32,
-  "cloth_size": "S",
-  "user_email": null
-}
+    {
+      "id": 1,
+      "member_name": "teamUser1",
+      "number": 32,
+      "cloth_size": "S",
+      "user_email": null
+    }
 
 `401 인증 필요`
 
@@ -893,61 +891,61 @@
 
 ### 요청 Request
 
-{
-  "customItems": [
     {
-      "productPart": "top, bottom",
-      "productCategory": "uniform, shorts",
-      "productName": "sleeves_round, sleeves_vneck, half_pants",
-      "patternCode": "15030, 15031",
-      "patternColor": 1,
-      "colors": [
+      "customItems": [
         {
-          "partName": "body_neck",
-          "colorCode": "#FFFFFF"
+          "productPart": "top, bottom",
+          "productCategory": "uniform, shorts",
+          "productName": "sleeves_round, sleeves_vneck, half_pants",
+          "patternCode": "15030, 15031",
+          "patternColor": 1,
+          "colors": [
+            {
+              "partName": "body_neck",
+              "colorCode": "#FFFFFF"
+            }
+          ],
+          "name": {
+            "font": 1,
+            "colorCode": "#335222",
+            "material": "material1"
+          },
+          "frontNumber": {
+            "font": 1,
+            "colorCode": "#335222",
+            "material": "material1"
+          },
+          "backNumber": {
+            "font": 1,
+            "colorCode": "#335222",
+            "material": "material1"
+          },
+          "frontSmallPatch": 2,
+          "frontLargePatch": 2,
+          "backLargePatch": 2,
+          "armMediumPatch": 2,
+          "fabric": "soft"
         }
       ],
-      "name": {
-        "font": 1,
-        "colorCode": "#335222",
-        "material": "material1"
-      },
-      "frontNumber": {
-        "font": 1,
-        "colorCode": "#335222",
-        "material": "material1"
-      },
-      "backNumber": {
-        "font": 1,
-        "colorCode": "#335222",
-        "material": "material1"
-      },
-      "frontSmallPatch": 2,
-      "frontLargePatch": 2,
-      "backLargePatch": 2,
-      "armMediumPatch": 2,
-      "fabric": "soft"
-    }
-  ],
-  "members": [
-    {
-      "memberName": "teamUser1",
-      "number": 32,
-      "clothSize": "S, M, L, XL...",
-      "userId": 23,
-      "userEmail": "ewerw@ew.sa"
-    }
-  ],
-  "customSizes": [
-    {
-      "sizeName": "L, XL",
+      "members": [
+        {
+          "memberName": "teamUser1",
+          "number": 32,
+          "clothSize": "S, M, L, XL...",
+          "userId": 23,
+          "userEmail": "ewerw@ew.sa"
+        }
+      ],
+      "customSizes": [
+        {
+          "sizeName": "L, XL",
+          "quantity": 3
+        }
+      ],
       "quantity": 3
     }
-  ],
-  "quantity": 3
-}
 
-`200 조회 성공`
+`200 주문 성공`
 
     [
         "http://show-your-team-api.dev/order/1496509400__order.json"
@@ -957,6 +955,7 @@
 
     {
         "error": "failed save"
+    }
 
 ## <a name="get-api/magazine"></a> [GET] /api/magazine - 매거진 목록
 
@@ -1033,7 +1032,7 @@
 | type | string | required | file, base64 중에 선택 |
 | files | `multipart data` or `base64 string` | required |  |
 
-`200 조회 성공`
+`200 업로드 성공`
 
     {
         "id": 1,
