@@ -248,15 +248,15 @@
 ### 요청 Request
     
     {
-      "teamName": "FC Toeo",
-      "teamLogoUrl": "fileserver/folder/path",
-      "memberList": [
+      "team_name": "FC Toeo",
+      "team_logo_url": "fileserver/folder/path",
+      "member_list": [
         {
-          "memberName": "teamUser11",
+          "member_name": "teamUser11",
           "number": 52
         },
         {
-          "memberName": "teamUser21",
+          "member_name": "teamUser21",
           "number": 71
         }
       ]
@@ -269,8 +269,8 @@
     {
       "team_name": "FC Toeo",
       "team_logo_url": "fileserver/folder/path",
-      "teamId": 15,
-      "memberList": [
+      "team_id": 15,
+      "member_list": [
         {
           "id": 22,
           "member_name": "teamUser11",
@@ -282,7 +282,7 @@
           "number": null
         }
       ],
-      "waitingMemberList": []
+      "waiting_member_list": []
     }
 
 `401 인증 필요`
@@ -292,6 +292,7 @@
     }
 
 `400 잘못된 요청`
+
     {
         "error": {field-name} 필드는 필수 입력 사항입니다.
     }
@@ -431,21 +432,21 @@
 ### 요청 Request
 
     {
-      "teamName": "newTeamName",
-      "teamLogoUrl": "newTeamLogoUrl"
+      "team_name": "newTeamName",
+      "team_logo_url": "newTeamLogoUrl"
     }
 
 ### 응답 Response
 
 `200 갱신 성공`
     
-     {
-    "team_name": "newTeamName",
-    "team_logo_url": "newTeamLogoUrl",
-    "team_id": 1,
-    "member_list": [],
-    "waiting_member_list": [],
-    "creation_date": "2017/06/03"
+    {
+      "team_name": "newTeamName",
+      "team_logo_url": "newTeamLogoUrl",
+      "team_id": 1,
+      "member_list": [],
+      "waiting_member_list": [],
+      "creation_date": "2017/06/03"
     }
 
 `401 인증 필요`
@@ -538,7 +539,7 @@
         "error": "Not authenticated."
     }
 
-## <a name="get-api/teams/:id/member/accept"></a> [GET] /api/teams/:id/accept?userId=:userId - 팀 가입 요청 승인]
+## <a name="get-api/teams/:id/member/accept"></a> [GET] /api/teams/:id/accept?member_id=:member_id - 팀 가입 요청 승인]
 ### 헤더 Headers
 
 | 헤더명 | 값 | 예시 |
@@ -592,7 +593,7 @@
 
 
 
-## <a name="delete-api/teams/:id/member/reject"></a> [DELETE] /api/teams/:id/reject?userId=:userId - 팀 가입 거절]
+## <a name="delete-api/teams/:id/member/reject"></a> [DELETE] /api/teams/:id/reject?member_id=:member_id - 팀 가입 거절]
 ### 헤더 Headers
 
 | 헤더명 | 값 | 예시 |
@@ -644,7 +645,7 @@
       "error": "not waiting member"
     }
 
-## <a name="delete-api/teams/:id/member/remove"></a> [DELETE] /api/teams/:id/remove?userId=:userId - 팀 멤버 삭제]
+## <a name="delete-api/teams/:id/member/remove"></a> [DELETE] /api/teams/:id/remove?member_id=:member_id - 팀 멤버 삭제]
 ### 헤더 Headers
 
 | 헤더명 | 값 | 예시 |
@@ -695,9 +696,9 @@
 ### 요청 Request
 
     {
-      "memberName": "user000",
+      "member_name": "user000",
       "number": 32,
-      "clothSize": "S"
+      "cloth_size": "S"
     }
 
 ### 응답 Response
@@ -740,10 +741,10 @@
 ### 요청 Request
 
     {
-      "userId": 196,
-      "memberName": "teamUser1",
+      "member_id": 1,
+      "member_name": "teamUser1",
       "number": 32,
-      "clothSize": "S" or "M" or "L" or "XL" ...
+      "cloth_size": "S" or "M" or "L" or "XL" ...
      }
 
 ### 응답 Response
@@ -800,11 +801,6 @@
     ]
 
 ## <a name="get-api/resource/all"></a> [GET] /api/resource/all - 리소스가 포함된 패턴 목록]
-
-### ! 주의 사항
-
-이 API는 시범적으로 만들어졌습니다.
-서버 부하에 유의하며 사용하시기 바랍니다.
 
 ### 헤더 Headers
 
@@ -948,7 +944,7 @@
 `200 주문 성공`
 
     [
-        "http://show-your-team-api.dev/order/1496509400__order.json"
+        "http://show-your-team-api.dev/order/1496509400_0_order.json"
     ]
 
 `400 잘못된 요청`
@@ -1029,8 +1025,8 @@
 
 | 필드명 | 데이터 타입 | 필수 | 조건 |
 |------|------|------|------|
-| type | string | required | file, base64 중에 선택 |
-| files | `multipart data` or `base64 string` | required |  |
+| key | type | string | required | file, base64 중에 선택 |
+| files | file | `multipart data` or `base64 string` | required |  |
 
 `200 업로드 성공`
 
@@ -1049,3 +1045,9 @@
     {
         "error": "알 수 없는 type 입니다."
     }
+
+
+    ### ! 주의 사항
+
+이 API는 시범적으로 만들어졌습니다.
+서버 부하에 유의하며 사용하시기 바랍니다.
