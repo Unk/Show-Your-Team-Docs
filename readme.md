@@ -1026,7 +1026,7 @@
 | 필드명 | 데이터 타입 | 필수 | 조건 |
 |------|------|------|------|
 | type | string | required | file, base64 중에 선택 |
-| file | `multipart data` or `base64 string` | required |  |
+| files | `multipart data` or `base64 string` | required |  |
 
 `200 업로드 성공`
 
