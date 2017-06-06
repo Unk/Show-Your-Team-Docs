@@ -138,8 +138,12 @@
 `200 조회 성공`
 
     {
-        "user_id": "user001",
-        "user_name": "User",
+        "m_no": 1,
+        "m_id": "user001",
+        "level": 1,
+        "name": "User",
+        "nickname": "User",
+        ...
         "email": "user@user.com",
         ...
     }
