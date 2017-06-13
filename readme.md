@@ -24,12 +24,16 @@
     - [[GET] /api/resource - 패턴 목록](#get-api/resource)
     - [[GET] /api/resource/all - 리소스가 포함된 패턴 목록](#get-api/resource/all)
     - [[GET] /api/resource/:code - 패턴 코드로 리소스 정보 조회](#get-api/resource/:code)
-4. 매거진 Magazine
+4. 제품 Product
+    - [[GET] /api/product - 제품 목록](#get-api/product)
+    - [[GET] /api/product/all - 패턴, 리소스가 포함된 제품 목록](#get-api/product/all)
+    - [[GET] /api/product/:code - 제품 코드로 정보 조회](#get-api/product/:code)
+5. 매거진 Magazine
     - [[GET] /api/magazine - 매거진 목록](#get-api/magazine)
     - [[GET] /api/magazine/:id - 매거진 상세](#get-api/magazine/:id)
-5. 주문 Order
+6. 주문 Order
     - [[POST] /api/order - 커스텀 주문](#post-api/order)
-6. 업로드 Upload
+7. 업로드 Upload
     - [[POST] /api/upload - 파일 업로드](#post-api/upload)
 
 ## <a name="post-api/users"></a>[POST] /api/users - 회원가입
@@ -877,6 +881,125 @@
 
     {
         "error": "해당 코드의 패턴을 찾을 수 없습니다."
+    }
+    
+## <a name="get-api/product"></a> [GET] /api/product - 제품 목록]
+
+### 헤더 Headers
+
+불필요
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    [
+        {
+            "id": 1,
+            "code": "vneck_shirt",
+            "name": "브이넥",
+            "created_at": "2017-06-10 18:06:15",
+            "updated_at": "2017-06-10 18:06:15"
+        }
+    ]
+
+## <a name="get-api/product/all"></a> [GET] /api/product/all - 패턴, 리소스가 포함된 제품 목록]
+
+### 헤더 Headers
+
+불필요
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    [
+        {
+            "id": 1,
+            "code": "vneck_shirt",
+            "name": "브이넥",
+            "created_at": "2017-06-10 18:06:15",
+            "updated_at": "2017-06-10 18:06:15",
+            "patterns": [
+                {
+                    "id": 1,
+                    "code": "100",
+                    "thumbnail": null,
+                    "created_at": "2017-05-20 18:18:34",
+                    "updated_at": "2017-05-20 18:18:34",
+                    "pivot": {
+                        "product_id": 1,
+                        "pattern_id": 1
+                    },
+                    "resources": [
+                        {
+                            "id": 1,
+                            "pattern_id": 1,
+                            "code": "1",
+                            "front": "storage/72/8f/3cfe66735370c87414abc88dc35b.jpg",
+                            "back": "storage/81/12/9b57ae6674d4482e054e0a3732fd.jpg",
+                            "pants_left": "storage/8b/c6/c6196f6c016c876f25eab9bb67dc.jpg",
+                            "pants_right": "storage/2d/cd/5a725719a4b95c38fc662f5f179c.jpg",
+                            "thumbnail": "storage/a2/21/ae88e9dad01c5499040644c2aa85.jpg",
+                            "created_at": "2017-05-20 18:36:42",
+                            "updated_at": "2017-05-20 18:36:42"
+                        },
+                        ...
+                    ]
+                },
+                ...
+            ]
+        }
+    ]
+
+## <a name="get-api/product/:code"></a> [GET] /api/product/:code - 제품 코드로 정보 조회]
+
+### 헤더 Headers
+
+불필요
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    {
+        "id": 1,
+        "code": "vneck_shirt",
+        "name": "브이넥",
+        "created_at": "2017-06-10 18:06:15",
+        "updated_at": "2017-06-10 18:06:15",
+        "patterns": [
+            {
+                "id": 1,
+                "code": "100",
+                "thumbnail": null,
+                "created_at": "2017-05-20 18:18:34",
+                "updated_at": "2017-05-20 18:18:34",
+                "pivot": {
+                    "product_id": 1,
+                    "pattern_id": 1
+                }
+            },
+            ...
+        ]
+    }
+
+`404 찾을 수 없음`
+
+    {
+        "error": "해당 코드의 제품을 찾을 수 없습니다."
     }
 
 
