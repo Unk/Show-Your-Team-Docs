@@ -46,6 +46,7 @@
 | user_name | string | required |  |
 | email | string | required | 이메일 형식 |
 | password | string | required | 12자 이상, 16자 이하 |
+| mobile | string | optional | 휴대폰 번호 |
 
 ### 응답 Response
 
@@ -55,6 +56,7 @@
         "user_id": "user001",
         "user_name": "User",
         "email": "user@user.com"
+        ...
     }
 
 `400 잘못된 요청`, `409 충돌(Conflict)`
