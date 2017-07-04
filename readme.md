@@ -1167,7 +1167,9 @@
 
 ### 요청 Request
 
-불필요
+| 필드명 | 데이터 타입 | 필수 | 조건 |
+|------|------|------|------|
+| page | integer | optional | 미입력시 기본값 1 |
 
 ### 응답 Response
 
@@ -1175,7 +1177,7 @@
 
     {
         "total": 1,
-        "per_page": 12,
+        "per_page": 6,
         "current_page": 1,
         "last_page": 1,
         "next_page_url": null,
