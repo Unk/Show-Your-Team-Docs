@@ -1052,11 +1052,11 @@
       ],
       "members": [
         {
-          "memberName": "teamUser1",
+          "member_name": "teamUser1",
           "number": 32,
-          "clothSize": "S, M, L, XL...",
-          "userId": 23,
-          "userEmail": "ewerw@ew.sa"
+          "cloth_size": "S, M, L, XL...",
+          "user_id": 23,
+          "user_email": "ewerw@ew.sa"
         }
       ],
       "customSizes": [
