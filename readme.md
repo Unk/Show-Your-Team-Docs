@@ -20,6 +20,8 @@
     - [[DELETE] /api/teams/:id/member/remove - 팀 멤버 삭제](#delete-api/teams/:id/member/remove)
     - [[POST] /api/teams/:id/member/add - 팀 멤버 추가](#post-api/teams/:id/member/add)
     - [[PUT] /api/teams/:id/member/update - 팀 멤버 정보 변경](#post-api/teams/:id/member/update)
+    - [[GET] /api/teams/:id/member/:member_id/size - 팀 멤버 사이즈 조회](#get-/api/teams/:id/member/:member_id/size)
+    - [[POST] /api/teams/:id/member/:member_id/size - 팀 멤버 사이즈 입력/수정](#post-/api/teams/:id/member/:member_id/size)
 3. 리소스 Resource
     - [[GET] /api/resource - 패턴 목록](#get-api/resource)
     - [[GET] /api/resource/all - 리소스가 포함된 패턴 목록](#get-api/resource/all)
@@ -50,6 +52,7 @@
 | user_name | string | required |  |
 | email | string | required | 이메일 형식 |
 | password | string | required | 12자 이상, 16자 이하 |
+| mobile | string | optional | 휴대폰 번호 |
 
 ### 응답 Response
 
@@ -59,6 +62,7 @@
         "user_id": "user001",
         "user_name": "User",
         "email": "user@user.com"
+        ...
     }
 
 `400 잘못된 요청`, `409 충돌(Conflict)`
@@ -784,6 +788,81 @@
     }
 
 
+## <a name="get-/api/teams/:id/member/:member_id/size"></a> [GET] /api/teams/:id/member/:member_id/size - 팀 멤버 사이즈 조회]
+
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+불필요
+
+### 응답 Response
+
+`200 조회 성공`
+
+    {
+        "shoulder": 0,
+        "chest": 0,
+        "waist": 0,
+        "pelvis": 0,
+        "hip": 0,
+        "thigh": 0,
+        "arm_length": 0,
+        "leg_length": 0
+    }
+    
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
+## <a name="post-/api/teams/:id/member/:member_id/size"></a> [POST] /api/teams/:id/member/:member_id/size - 팀 멤버 사이즈 입력/수정]
+
+### 헤더 Headers
+
+| 헤더명 | 값 | 예시 |
+|-----|-----|-----|
+| Authorization | Bearer {token-here} | Bearer qwer-1234-asdf-5678 |
+
+### 요청 Request
+
+| 필드명 | 데이터 타입 | 필수 | 조건 |
+|------|------|------|------|
+| shoulder | float |  | 기본값 0 |
+| chest | float |  | 기본값 0 |
+| waist | float |  | 기본값 0 |
+| pelvis | float |  | 기본값 0 |
+| hip | float |  | 기본값 0 |
+| thigh | float |  | 기본값 0 |
+| arm_length | float |  | 기본값 0 |
+| leg_length | float |  | 기본값 0 |
+
+### 응답 Response
+
+`200 입력 성공`
+
+    {
+        "shoulder": 0,
+        "chest": 0,
+        "waist": 0,
+        "pelvis": 0,
+        "hip": 0,
+        "thigh": 0,
+        "arm_length": 0,
+        "leg_length": 0
+    }
+
+`401 인증 필요`
+
+    {
+        "error": "Not authenticated."
+    }
+
 ## <a name="get-api/resource"></a> [GET] /api/resource - 패턴 목록]
 
 ### 헤더 Headers
@@ -1088,7 +1167,9 @@
 
 ### 요청 Request
 
-불필요
+| 필드명 | 데이터 타입 | 필수 | 조건 |
+|------|------|------|------|
+| page | integer | optional | 미입력시 기본값 1 |
 
 ### 응답 Response
 
@@ -1096,7 +1177,7 @@
 
     {
         "total": 1,
-        "per_page": 12,
+        "per_page": 6,
         "current_page": 1,
         "last_page": 1,
         "next_page_url": null,
